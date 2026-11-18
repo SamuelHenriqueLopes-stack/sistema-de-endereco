@@ -7,7 +7,7 @@ include "./api.php";
 // echo "</pre>";
 
 if(isset($_GET['cep'])) {
-    $cep = $GET_['cep'];
+    $cep = $_GET['cep'];
     $endereco = buscaCEP($cep);
 }
 
@@ -19,10 +19,10 @@ if(isset($_GET['cep'])) {
         placeholder="Busca cep..."
         name="cep"
     >
-    <button>Buscar>/buster>
+    <button>Buscar</button>
 </form>
 
-<?php  if(isset($endereco['cep'])):?>
+<?php  if(!isset($endereco['erro']) && isset($cep)):?>
 <div>
     <h2>CEP encotrado</h2>
     <ul>
